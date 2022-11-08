@@ -28,16 +28,30 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     viewColor.layer.cornerRadius = 10
-       
-        sliderAction()
+//        paintingView()
         setupSlider()
+        sliderAction()
+     
     }
     
+    
     @IBAction func sliderAction() {
-        numberRedColor.text = String(sliderRed.value)
-        numberBlueColor.text = String(sliderBlue.value)
-        numberGreenColor.text = String(sliderGreen.value)
+        
+        numberRedColor.text = String(format: "%.2f", (sliderRed.value))
+        numberBlueColor.text = String(format: "%.2f", (sliderBlue.value))
+        numberGreenColor.text = String(format: "%.2f", (sliderGreen.value))
+        
     }
+   
+    
+//    @IBAction func paintingView() {
+//        var red = sliderRed.value
+//        var blue = sliderBlue.value
+//        var green = sliderGreen.value
+//     
+//        
+//        viewColor.backgroundColor = UIColor(red: CGFloat(red), green: CGFloat(green), blue: CGFloat(blue), alpha: CGFloat(red))
+//    }
    
 
 // MARK: - private setup
@@ -54,7 +68,7 @@ class ViewController: UIViewController {
         sliderBlue.minimumValue = 0
         sliderBlue.maximumValue = 1
         sliderBlue.minimumTrackTintColor = .blue
+                                    
     }
-    
 }
 
