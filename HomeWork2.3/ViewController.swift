@@ -27,34 +27,44 @@ class ViewController: UIViewController {
     // MARK: - IB Action
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewColor.layer.cornerRadius = 10
         
-        setupSlider()
-        sliderAction()
+        setupSlider(color: .red, slider: sliderRed)
+        setupSlider(color: .green, slider: sliderGreen)
+        setupSlider(color: .blue, slider: sliderBlue)
         
+        sliderAction()
+        paintingView()
     }
     
     
-    @IBAction func sliderAction() {
-        
+   @IBAction func sliderAction() {
+       paintingView()
+       
         numberRedColor.text = String(format: "%.2f", (sliderRed.value))
         numberBlueColor.text = String(format: "%.2f", (sliderBlue.value))
         numberGreenColor.text = String(format: "%.2f", (sliderGreen.value))
-        
-        viewColor.backgroundColor = UIColor(red: CGFloat(sliderRed.value), green: CGFloat(sliderGreen.value), blue: CGFloat(sliderBlue.value), alpha: 1)
+       
     }
+    
     
     
     
     // MARK: - private setup
-    private func setupSlider() {
-        sliderRed.value = 0
-        sliderRed.minimumTrackTintColor = .red
-        sliderGreen.value = 0
-        sliderGreen.minimumTrackTintColor = .green
-        sliderBlue.value = 0
-        sliderBlue.minimumTrackTintColor = .blue
+    private func setupSlider(color: UIColor, slider: UISlider) {
+        slider.value = 0
+        slider.minimumTrackTintColor = color
     }
     
+    private func paintingView() {
+        viewColor.backgroundColor = UIColor(
+            red: CGFloat(sliderRed.value),
+            green: CGFloat(sliderGreen.value),
+            blue: CGFloat(sliderBlue.value),
+            alpha: 1
+        )
+    }
 }
+
 
