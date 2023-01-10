@@ -51,8 +51,8 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func doneButton() {
-        settingCollorView()
-        view.endEditing(true)
+        delegate.setNewColor(color: viewColor.backgroundColor!)
+//        view.endEditing(true)
         dismiss(animated: true)
     }
     
@@ -72,10 +72,6 @@ class SettingViewController: UIViewController {
             blue: CGFloat(sliderBlue.value),
             alpha: 1
         )
-    }
-    
-    private func settingCollorView() {
-        delegate.setNewColor(r: Int(CGFloat(sliderRed.value)), g: Int(CGFloat(sliderGreen.value)), b: Int(CGFloat(sliderBlue.value)))
     }
 }
 

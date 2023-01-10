@@ -8,13 +8,13 @@
 import UIKit
 
 protocol SettingViewControllerDelegate {
-    func setNewColor( r: Int, g: Int, b: Int)
+    func setNewColor( color: UIColor)
 }
 
 class ColorViewController: UIViewController {
-    
-    
+  
     @IBOutlet var colorView: UIView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,10 +28,10 @@ class ColorViewController: UIViewController {
     
 }
 
+// MARK: - SettingViewControllerDelegate
 extension ColorViewController: SettingViewControllerDelegate {
-    func setNewColor(r: Int, g: Int, b: Int) {
-        colorView.backgroundColor = UIColor(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: 1)
+    func setNewColor( color: UIColor) {
+        colorView.backgroundColor = color
     }
-
     
 }

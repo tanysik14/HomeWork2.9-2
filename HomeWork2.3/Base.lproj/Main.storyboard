@@ -19,7 +19,7 @@
                                 <rect key="frame" x="-1" y="47" width="415" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem leftItemsSupplementBackButton="YES" id="4cg-XZ-IzY">
+                                    <navigationItem id="4cg-XZ-IzY">
                                         <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.pencil" catalog="system" id="ib3-7y-kkp">
                                             <connections>
                                                 <segue destination="BYZ-38-t0r" kind="presentation" id="s8s-CC-Goe"/>
