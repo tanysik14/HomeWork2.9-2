@@ -21,14 +21,23 @@ class SettingViewController: UIViewController {
     @IBOutlet var sliderGreen: UISlider!
     @IBOutlet var sliderBlue: UISlider!
     
+
+    @IBOutlet var textFieldRed: UITextField!
+    @IBOutlet var textFieldGreen: UITextField!
+    @IBOutlet var textFieldBlue: UITextField!
     
+    
+    var colorVC: UIColor!
     var delegate: SettingViewControllerDelegate!
+    
+
     
     
     // MARK: - IB Action
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewColor.backgroundColor = colorVC
         viewColor.layer.cornerRadius = 10
         
         setupSlider(color: .red, slider: sliderRed)
@@ -37,7 +46,7 @@ class SettingViewController: UIViewController {
         
         sliderAction()
         paintingView()
-       
+
     }
     
     

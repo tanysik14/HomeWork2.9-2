@@ -12,10 +12,7 @@ protocol SettingViewControllerDelegate {
 }
 
 class ColorViewController: UIViewController {
-  
-    @IBOutlet var colorView: UIView!
-
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -23,6 +20,7 @@ class ColorViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let settingVC = segue.destination as? SettingViewController else { return }
         settingVC.delegate = self
+        settingVC.colorVC = view.backgroundColor
     }
     
     
@@ -31,7 +29,7 @@ class ColorViewController: UIViewController {
 // MARK: - SettingViewControllerDelegate
 extension ColorViewController: SettingViewControllerDelegate {
     func setNewColor( color: UIColor) {
-        colorView.backgroundColor = color
+        view.backgroundColor = color
     }
     
 }
