@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingViewController: UIViewController {
     
     // MARK: - IB Outlet
     
@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet var sliderBlue: UISlider!
     
     
+    var delegate: SettingViewControllerDelegate!
     
     
     // MARK: - IB Action
@@ -36,6 +37,7 @@ class ViewController: UIViewController {
         
         sliderAction()
         paintingView()
+       
     }
     
     
@@ -46,6 +48,12 @@ class ViewController: UIViewController {
         numberBlueColor.text = String(format: "%.2f", (sliderBlue.value))
         numberGreenColor.text = String(format: "%.2f", (sliderGreen.value))
        
+    }
+    
+    @IBAction func doneButton() {
+        settingCollorView()
+        view.endEditing(true)
+        dismiss(animated: true)
     }
     
     
@@ -64,6 +72,10 @@ class ViewController: UIViewController {
             blue: CGFloat(sliderBlue.value),
             alpha: 1
         )
+    }
+    
+    private func settingCollorView() {
+        delegate.setNewColor(r: Int(CGFloat(sliderRed.value)), g: Int(CGFloat(sliderGreen.value)), b: Int(CGFloat(sliderBlue.value)))
     }
 }
 
